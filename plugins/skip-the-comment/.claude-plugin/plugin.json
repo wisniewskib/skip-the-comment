@@ -1,0 +1,8 @@
+{
+  "name": "skip-the-comment",
+  "version": "0.1.0",
+  "description": "Paste an Instagram reel/post link, get what the creator sends by DM - without commenting.",
+  "author": { "name": "wisniewskib" },
+  "repository": "https://github.com/wisniewskib/skip-the-comment",
+  "license": "MIT"
+}

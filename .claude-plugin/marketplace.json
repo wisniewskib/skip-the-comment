@@ -1,0 +1,12 @@
+{
+  "name": "skip-the-comment",
+  "owner": { "name": "wisniewskib" },
+  "description": "skip-the-comment: get what an Instagram creator sends by DM without commenting.",
+  "plugins": [
+    {
+      "name": "skip-the-comment",
+      "source": "./plugins/skip-the-comment",
+      "description": "Paste an Instagram reel/post link, get what the creator sends by DM - without commenting."
+    }
+  ]
+}
