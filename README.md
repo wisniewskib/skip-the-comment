@@ -1,5 +1,9 @@
 # skip-the-comment
 
+![skip the comment: wklej link do rolki, dostajesz to, co twórca wysyła w DM](assets/banner.png)
+
+![Claude Code ✓](https://img.shields.io/badge/Claude_Code-%E2%9C%93-7b4dff?style=flat-square) ![claude.ai ✓](https://img.shields.io/badge/claude.ai-%E2%9C%93-b98cff?style=flat-square) ![bez logowania](https://img.shields.io/badge/bez_logowania-ff5c7a?style=flat-square) ![license MIT](https://img.shields.io/badge/license-MIT-ffe14d?style=flat-square)
+
 **Wklej link do rolki z Instagrama → dostajesz to, co twórca wysyła w DM. Bez komentowania.**
 
 „Skomentuj PLAN, a wyślę ci pełną instrukcję”: już nie musisz.
@@ -22,15 +26,7 @@ Potem wklejasz już tylko link do rolki albo posta. Za pierwszym razem Claude po
 
 ## Co dostajesz
 
-```
-Co obiecuje: pełny setup skilla do Claude'a, który robi research konkurencji.
-
-1. ✅ Zainstaluj repo X (pokazane na ekranie w 0:12)
-2. 🔎 Komenda instalacji z oficjalnego README (link)
-3. ❓ Nazwa szablonu promptu nie padła — najbliższy odpowiednik: …
-
-Chcesz, żebym to od razu zainstalował?
-```
+![Przykładowa odpowiedź: link do rolki, a pod nim gotowy prompt do podłączenia 5 konektorów z oznaczeniami źródeł](assets/demo.png)
 
 - ✅ z rolki (powiedziane, pokazane albo napisane)
 - 🔎 z researchu, zawsze z linkiem do źródła
