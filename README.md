@@ -2,15 +2,17 @@
 
 ![skip the comment: wklej link do rolki, dostajesz to, co twórca wysyła w DM](assets/banner.png)
 
-![Claude Code ✓](https://img.shields.io/badge/Claude_Code-%E2%9C%93-7b4dff?style=flat-square) ![claude.ai ✓](https://img.shields.io/badge/claude.ai-%E2%9C%93-b98cff?style=flat-square) ![bez logowania](https://img.shields.io/badge/bez_logowania-ff5c7a?style=flat-square) ![license MIT](https://img.shields.io/badge/license-MIT-ffe14d?style=flat-square)
+![Claude Code ✓](https://img.shields.io/badge/Claude_Code-%E2%9C%93-7b4dff?style=flat-square) ![claude.ai ✓](https://img.shields.io/badge/claude.ai-%E2%9C%93-b98cff?style=flat-square) ![Codex ✓](https://img.shields.io/badge/Codex-%E2%9C%93-9d7bff?style=flat-square) ![bez logowania](https://img.shields.io/badge/bez_logowania-ff5c7a?style=flat-square) ![license MIT](https://img.shields.io/badge/license-MIT-ffe14d?style=flat-square)
 
 **Wklej link do rolki z Instagrama → dostajesz to, co twórca wysyła w DM. Bez komentowania.**
 
 „Skomentuj PLAN, a wyślę ci pełną instrukcję”: już nie musisz.
 
-## Start: skopiuj jedno zdanie i wklej do Claude'a
+## Start: skopiuj jedno zdanie i wklej do Claude'a albo Codexa
 
-**Zainstaluj na stałe** (Claude Code albo claude.ai):
+To samo zdanie działa w Claude Code, na claude.ai i w Codex.
+
+**Zainstaluj na stałe** (Claude Code, claude.ai albo Codex):
 
 ```
 Zainstaluj ten skill: https://github.com/wisniewskib/skip-the-comment
@@ -22,7 +24,7 @@ Zainstaluj ten skill: https://github.com/wisniewskib/skip-the-comment
 Użyj https://github.com/wisniewskib/skip-the-comment na tej rolce: <link do rolki>
 ```
 
-Potem wklejasz już tylko link do rolki albo posta. Za pierwszym razem Claude pokaże, co musi doinstalować, i zapyta o zgodę.
+Potem wklejasz już tylko link do rolki albo posta. Za pierwszym razem agent pokaże, co musi doinstalować, i zapyta o zgodę.
 
 ## Co dostajesz
 
@@ -39,7 +41,7 @@ Research szuka po temacie, nie po twórcy. Zdrowie i trening to badania naukowe 
 
 1. **Pobranie** rolki albo wszystkich slajdów karuzeli, opisu i (jeśli się da) komentarzy.
 2. **Transkrypcja** tego, co mówi twórca, lokalnie na Twoim komputerze.
-3. **Klatki** co sekundę, sklejone w siatki: Claude czyta tekst z ekranu.
+3. **Klatki** co sekundę, sklejone w siatki: agent czyta tekst z ekranu.
 4. **Komentarze:** odrzuca wszystko, co się powtarza (słowo-wyzwalacz, auto-odpowiedzi twórcy), zostawia resztę i linki.
 5. **Research** tego, czego brakuje, w wiarygodnych źródłach.
 6. **Krótka odpowiedź** z oznaczeniami i jedną propozycją, co dalej.
@@ -65,6 +67,12 @@ Razem ok. 1 GB na dysku.
 - Włącz dostęp do sieci: **Settings → Capabilities → wykonywanie kodu → dostęp do sieci: wszystkie domeny**.
 - **Działa w pełni** (sprawdzone 10.10.2026): pobieranie bez logowania i transkrypcja. Po włączeniu dostępu do sieci otwórz **nowy czat**, bo w starym zmiana nie działa. Nowy czat może pobierać model mowy od nowa (ok. 1 min).
 - Alternatywa: rozszerzenie **Claude in Chrome** przeczyta opis, slajdy i komentarze w Twojej przeglądarce, ale nie usłyszy, co mówi twórca.
+
+## Codex
+
+- Instalacja: wklej to samo zdanie co wyżej albo uruchom `npx skills add wisniewskib/skip-the-comment` i wybierz Codex. Skill ląduje w `~/.codex/skills/skip-the-comment/`.
+- Domyślny sandbox Codexa blokuje sieć: zatwierdź dostęp do sieci dla pobierania (instalacja bibliotek i pobranie rolki). Do researchu włącz wyszukiwanie w sieci (`codex --search` albo odpowiednie ustawienie).
+- ChatGPT: skille są w becie na części planów, a jego sandbox zwykle nie ma internetu, więc rolek najpewniej nie pobierze. Na razie nieobsługiwane.
 
 ## Prywatność
 
@@ -98,9 +106,9 @@ Usuń trzy foldery:
 
 ---
 
-## Instrukcja dla Claude'a
+## Instrukcja dla agenta (Claude, Codex)
 
-*(For Claude. The user pasted one of the two sentences from the top of this README.)*
+*(For the agent, Claude or Codex. The user pasted one of the two sentences from the top of this README.)*
 
 ### "Zainstaluj ten skill" / "Install this skill" — Claude Code
 
@@ -109,13 +117,19 @@ Usuń trzy foldery:
 3. Copy `plugins/skip-the-comment/skills/skip-the-comment/` from it to the skills folder above. Delete the temp clone.
 4. Tell the user it is installed and that from now on they just paste an Instagram link (if the skill does not show up, start a new session). Do not run setup yet; it runs on the first link.
 
+### "Zainstaluj ten skill" / "Install this skill" — Codex
+
+1. Tell the user you will download this repo and copy the skill folder to `~/.codex/skills/skip-the-comment/` (Windows: `%USERPROFILE%\.codex\skills\skip-the-comment\`). Ask for a yes. Downloading needs network access: request approval if your sandbox blocks it.
+2. Clone or unpack the repo as in the Claude Code steps above, then copy `plugins/skip-the-comment/skills/skip-the-comment/` to that folder. Delete the temp clone.
+3. Tell the user it is installed and to start a new Codex session so the skill is picked up. Mention that web search must be enabled (`codex --search`) for research. Do not run setup yet.
+
 ### "Zainstaluj ten skill" / "Install this skill" — claude.ai
 
 1. Download https://github.com/wisniewskib/skip-the-comment/releases/latest/download/skip-the-comment.zip in your sandbox.
 2. Give the user that file and tell them: Customize → Skills → + → Upload a skill → choose this file.
 3. If you cannot download or share files here, give them the link instead.
 
-### "Użyj … na tej rolce" / "Use … on this reel" — no install
+### "Użyj … na tej rolce" / "Use … on this reel" — no install (any agent)
 
 1. Create a temp folder `skip-the-comment/` with a `scripts/` subfolder and download into it:
    - `https://raw.githubusercontent.com/wisniewskib/skip-the-comment/main/plugins/skip-the-comment/skills/skip-the-comment/SKILL.md`

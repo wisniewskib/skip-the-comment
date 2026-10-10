@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""skip-the-comment extractor: everything a public Instagram reel/post contains, ready for Claude to read.
+"""skip-the-comment extractor: everything a public Instagram reel/post contains, ready for the agent to read.
 
     python3 extract.py <instagram_url> [--out DIR]
 

@@ -5,7 +5,7 @@
     python3 setup.py install                               venv + pip install + one-time whisper model download
     python3 setup.py config --cookies none|chrome|firefox  store the cookie choice
 
-`check` never installs anything. Claude runs `install` only after the user said yes in chat.
+`check` never installs anything. The agent runs `install` only after the user said yes in chat.
 """
 import argparse
 import json

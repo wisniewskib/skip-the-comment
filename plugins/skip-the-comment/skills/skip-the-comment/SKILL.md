@@ -6,7 +6,12 @@ description: Get the content an Instagram creator promises to send by DM ("comme
 # Skip the comment
 
 Turn a public Instagram reel/post into the content the creator gates behind "comment X and I'll DM you".
-Always reply in the user's language. Paths below are relative to this skill's directory. Use `python3` (on Windows: `python`; if that is not found or opens the Microsoft Store, use `py -3`).
+"You" are the agent reading this skill (Claude, Codex or another agent). Always reply in the user's language. Paths below are relative to this skill's directory. Use `python3` (on Windows: `python`; if that is not found or opens the Microsoft Store, use `py -3`).
+
+## Network and search
+
+`setup.py install` and `extract.py` need internet. If your sandbox blocks network (Codex's default), request permission/escalation to run those two commands with network access. If you cannot get it, say so plainly and stop; never guess the content.
+Research (step 4) needs web search. If you have no web search tool (Codex: enable web search in its settings or run with `--search`), tell the user in one line and still produce the deliverable from the post, tagging unverified parts ❓.
 
 ## 1. Setup (first run only)
 
@@ -21,16 +26,16 @@ Run `python3 scripts/setup.py check`. It installs nothing.
   - "Install? (yes / no)";
   - only if `config` is null, the cookie question: "Can I use your browser's Instagram session to read comments? Your browser must be logged in to Instagram. Nothing leaves your computer except requests to Instagram. Options: no (default) / chrome / firefox." On Windows recommend firefox (Chrome's cookies usually cannot be decrypted there, and are locked while Chrome is open). On macOS say that chrome makes macOS ask for "Chrome Safe Storage" access once: click Allow.
 - Save the cookie answer right away, even if the user declines the install: `python3 scripts/setup.py config --cookies none|chrome|firefox` (no answer → `none`).
-- Run `python3 scripts/setup.py install` only after an explicit yes, with the maximum Bash timeout (600000 ms) or in the background. Tell the user the first install takes about 2–5 minutes.
+- Run `python3 scripts/setup.py install` only after an explicit yes, using your shell tool with a long timeout (at least 10 min; Claude Code: timeout 600000 ms, or run in background). Tell the user the first install takes about 2–5 minutes.
   On no: say what is missing and stop.
 - Install errors (`error_code`):
-  - `venv_unavailable` → show `hint`; ask the user to run it themselves (it needs their password; in Claude Code they can type `! <command>`), then rerun install.
-  - `pip_failed` / `model_download_failed` → on claude.ai this means no network access (see Errors → `network`); elsewhere show the output.
+  - `venv_unavailable` → show `hint`; ask the user to run it in their own terminal (it needs their password; Claude Code: they can type `! <command>`), then rerun install.
+  - `pip_failed` / `model_download_failed` → on claude.ai or in a sandboxed agent this means no network access (see Errors → `network`); elsewhere show the output.
   - `python_too_old` → as above.
 
 ## 2. Extract
 
-Run `python3 scripts/extract.py "<link>"` with a Bash timeout of at least 300000 ms (it takes 30 s – 2 min). It prints a manifest (also saved as `<out_dir>/manifest.json`).
+Run `python3 scripts/extract.py "<link>"` using your shell tool with a long timeout (at least 5 min; Claude Code: timeout 300000 ms, or run in background; it takes 30 s – 2 min). It prints a manifest (also saved as `<out_dir>/manifest.json`).
 If `status` is `error`, go to Errors.
 
 ## 3. Read everything
@@ -99,7 +104,7 @@ Every item tagged:
 | `private`, `not_found` | "This works only on public posts." Stop. |
 | `blocked` | Instagram blocked the download. If `cookies` is `none`: offer to use the browser session (`setup.py config --cookies chrome|firefox`, the browser must be logged in to Instagram), then rerun once after a yes. Otherwise: "Instagram is blocking downloads right now, try again later." |
 | `cookies_unreadable` | The browser's cookies could not be read. Suggest the other browser (`setup.py config --cookies firefox` or `chrome`) or closing Chrome completely, then rerun once after a yes. |
-| `network` | "I can't download this reel in this environment. Turn on network access for code execution (claude.ai: Settings → Capabilities → allow all domains) or use Claude Code." |
+| `network` | "I can't download this reel in this environment." Then say how to fix it: claude.ai: Settings → Capabilities → allow all domains, then a new chat; Codex: approve network access for the command or enable network in the sandbox settings; or use Claude Code. |
 | `not_set_up` | Go to step 1. |
 | `unknown` | Show the last lines of `detail`. |
 
