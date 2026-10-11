@@ -91,6 +91,7 @@ Every item tagged:
   - A link → the actual link (from the post, its comments, or the official source found in research).
   - A plan, template or checklist → the full thing, not a description of it.
   - Say in one line that it is reconstructed, not the creator's original, and tag the reconstructed parts 🔎 / ❓.
+  - **Unrecoverable deliverables:** if the promised thing is a unique private resource with no clues in the post (the creator's own Notion/Drive link, a discount or affiliate code, a personal file, "my full system" with no details), say plainly in one line that it cannot be recovered from the post. Then give the closest public equivalent, tagged ❓. Never invent a URL, code or file name.
 - ✅ only for things actually said, shown or written in the post or its comments.
 - No process recap, no padding.
 - Offer examples: install the skill/repo, write the plan out week by week, save it as a file, make a step-by-step checklist, check which tools are still free and current.

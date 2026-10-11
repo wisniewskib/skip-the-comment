@@ -85,6 +85,7 @@ Razem ok. 1 GB na dysku.
 - Tylko **publiczne** posty. Prywatne i usunięte nie działają.
 - Instagram czasem blokuje pobieranie. Wtedy pomaga zgoda na sesję z przeglądarki albo spróbowanie później.
 - Jeśli czegoś nie było w poście i nie da się tego rzetelnie znaleźć, dostaniesz ❓ zamiast zmyślenia.
+- **Nie zawsze się uda.** Skill odtwarza to, co da się wywnioskować z rolki: o czym twórca mówi, co pokazuje, co pisze. Jeśli w DM idzie coś, co z rolką nie ma bezpośredniego związku albo jest zbyt ogólnikowe, nie da się tego odtworzyć. Przykłady: konkretny link do jego Notion, kod rabatowy, prywatny plik, „mój pełny system” bez żadnych szczegółów. Wtedy skill powie to wprost i zaproponuje najbliższy publiczny odpowiednik, oznaczony ❓.
 
 ## Inne sposoby instalacji
 
